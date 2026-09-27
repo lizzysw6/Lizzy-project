@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lizzy's Favorite Travels</title>
+
+    <style>
+        body {
+            background-color: #fff5fa;
+            margin: 30px;
+            color: #333333;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: underline;
+            border: 3px solid #e68bff;
+            padding: 15px;
+            background-color: #ffe6f2;
+        }
+
+        .intro {
+            color: black;
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #fce4ec;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #e68bff;
+        }
+
+        h3 {
+            color: rgb(230, 139, 255);
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+        }
+
+        ul {
+            font-family: Verdana, sans-serif;
+            line-height: 1.8;
+        }
+
+        ol {
+            font-family: "Times New Roman", serif;
+            line-height: 1.8;
+        }
+
+        .travel-image {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border: 4px solid #e68bff;
+            border-radius: 10px;
+            margin: 10px 20px;
+        }
+
+        .left-image {
+            float: left;
+        }
+
+        .right-image {
+            float: right;
+        }
+
+        .section {
+            min-height: 430px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            background-color: #e68bff;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin-top: 30px;
+        }
+
+        th, td {
+            border: 2px solid #391118;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #c45bdd;
+        }
+
+        td {
+            background-color: #edb5fa;
+        }
+
+        a {
+            color: #c13f9b;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+            background-color: #e68bff;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .links {
+            background-color: #ffe0ef;
+            border: 2px solid #ff69b4;
+            padding: 15px;
+            margin-top: 30px;
+            font-family: Georgia, serif;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Lizzy's Favorite Travels</h1>
+
+   <p class="intro">
+    I enjoy experiencing <b>new cultures</b> and seeing the different ways people live.
+    My favorite part of traveling is <i>trying new food</i> because I find that every
+    culture has at least one dish that anyone would like.
+</p>
+
+   <div class="links">
+    <strong>Travel Links:</strong>
+
+    <!-- Internal link -->
+    <a href="#dream-destinations">Dream Destinations</a> |
+
+    <!-- External link -->
+    <a href="https://en.wikipedia.org/wiki/Travel">Wikipedia:Travel</a> |
+
+    <!-- Opens in a new tab -->
+    <a href="https://www.visitflorence.com/" target="_blank">Visit Florence</a>
+</div>
+
+    <br>
+
+    <div class="section">
+
+        <img src="c:\Users\lizzy\Downloads\IMG_2219.jpeg"
+             alt="Dinner in Tokyo"
+             class="travel-image left-image">
+
+        <h3>Must Do While Traveling</h3>
+
+        <ul>
+            <li>Trying authentic food</li>
+            <li>Visiting historic sites</li>
+            <li>Meeting new people</li>
+            <li>Visiting local grocery stores and markets</li>
+            <li>Seeing what their shopping centers are like</li>
+        </ul>
+
+    </div>
+
+    <div class="section" id="dream-destinations">
+
+        <img src="c:\Users\lizzy\Downloads\IMG_2461.jpeg"
+             alt="Paris Nights"
+             class="travel-image right-image">
+
+        <h3>My Top 5 Dream Travel Destinations</h3>
+
+        <ol>
+            <li>Florence, Italy</li>
+            <li>Milan, Italy</li>
+            <li>Manila, Philippines</li>
+            <li>Rio de Janeiro, Brazil</li>
+            <li>Bora Bora, French Polynesia</li>
+        </ol>
+
+    </div>
+
+    <h3 id="travel-table">Dream Destination Comparison</h3>
+
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Country</th>
+            <th>Best Season to Visit</th>
+            <th>Famous For</th>
+        </tr>
+
+        <tr>
+            <td>Florence</td>
+            <td>Italy</td>
+            <td>Spring</td>
+            <td>Art and Culture</td>
+        </tr>
+
+        <tr>
+            <td>Milan</td>
+            <td>Italy</td>
+            <td>Fall</td>
+            <td>Fashion</td>
+        </tr>
+
+        <tr>
+            <td>Manila</td>
+            <td>Philippines</td>
+            <td>Winter</td>
+            <td>Food and History</td>
+        </tr>
+    </table>
+
+</body>
+</html>
