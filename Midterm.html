@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dumpling Mania - Fresh Hand-Folded Dumplings</title>
+    <style>
+        /* CSS Reset and Basic Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f7f3f9;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* HEADER AND NAVIGATION AREA */
+        header {
+            background-color: #4A0E4E; /* Main Purple Background */
+            color: #ffffff;
+            /* ADVANCED FEATURE 1: CSS Drop Shadows */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+        }
+
+        /* Logo Styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #FFD166; /* Gold Accent Text */
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.1;
+        }
+
+        .logo-img {
+            width: 38px;
+            height: 38px;
+            margin-right: 12px;
+            /* ADVANCED FEATURE 2: CSS Rounded Corners */
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Nav Menu Links */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 24px 18px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            /* ADVANCED FEATURE 3: CSS Transitions */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #6A1B6E;
+            color: #FFD166;
+        }
+
+        /* Nav Button Link with Opacity Hover */
+        .btn-order {
+            background-color: #FFD166;
+            color: #4A0E4E !important;
+            padding: 10px 20px;
+            /* ADVANCED FEATURE 2: CSS Rounded Corners */
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+            align-self: center;
+            text-decoration: none;
+            /* ADVANCED FEATURE 3: CSS Transitions */
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-order:hover {
+            /* Button Opacity Feature */
+            opacity: 0.8;
+            background-color: #FFD166;
+        }
+
+        /* DROPDOWN SUBMENUS */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: #2D2D2D;
+            list-style: none;
+            /* ADVANCED FEATURE 1: CSS Drop Shadows */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            /* ADVANCED FEATURE 2: CSS Rounded Corners */
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Active highlight item in submenus */
+        .dropdown-menu li.active-item a {
+            background-color: #7B1FA2;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .dropdown-menu li.active-item a:hover {
+            background-color: #6A1B6E;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 18px;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 1px solid #3d3d3d;
+            /* ADVANCED FEATURE 3: CSS Transitions */
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #3d3d3d;
+            color: #FFD166;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid #e2d5e5;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: #4A0E4E;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #555555;
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: #7B1FA2;
+            color: #ffffff;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            /* ADVANCED FEATURE 2: CSS Rounded Corners */
+            border-radius: 25px;
+            /* ADVANCED FEATURE 3: CSS Transitions */
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            /* Button Opacity Feature */
+            opacity: 0.82;
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 25px;
+            /* ADVANCED FEATURE 2: CSS Rounded Corners */
+            border-radius: 12px;
+            /* ADVANCED FEATURE 1: CSS Drop Shadows */
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            color: #4A0E4E;
+            font-size: 22px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #FFD166;
+            padding-bottom: 8px;
+        }
+
+        /* IMAGE GALLERY & HOVER FEATURES */
+        .gallery {
+            display: flex;
+            gap: 15px;
+        }
+
+        .img-box {
+            flex: 1;
+            overflow: hidden;
+            /* ADVANCED FEATURE 2: CSS Rounded Corners */
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            /* ADVANCED FEATURE 3: CSS Transitions */
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        /* Image Hover Feature */
+        .img-box:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        .img-caption {
+            text-align: center;
+            font-size: 13px;
+            color: #666666;
+            margin-top: 8px;
+        }
+
+        /* STYLED TABLE */
+        .specials-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .specials-table th {
+            background-color: #4A0E4E;
+            color: #ffffff;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 15px;
+        }
+
+        .specials-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .specials-table tr:nth-child(even) {
+            background-color: #f9f2fa;
+        }
+
+        .specials-table tr:hover {
+            background-color: #f0e2f3;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #7B1FA2;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #2D2D2D;
+            color: #cccccc;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+            font-size: 14px;
+            border-top: 4px solid #4A0E4E;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">
+                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=100&q=80" alt="Dumpling Logo" class="logo-img">
+                <div>DUMPLING<br>MANIA</div>
+            </a>
+
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+
+                <!-- Menu Dropdown -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Menu</a>
+                    <ul class="dropdown-menu">
+                        <li class="active-item"><a href="#">Pork Dumplings 🥟</a></li>
+                        <li><a href="#">Soup Dumplings (XLB)</a></li>
+                        <li><a href="#">Pan-Fried Gyoza</a></li>
+                        <li><a href="#">Crispy Wontons</a></li>
+                        <li><a href="#">Boba & Teas</a></li>
+                        <li><a href="#">Sweet Desserts</a></li>
+                    </ul>
+                </li>
+
+                <!-- Specials Dropdown -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Specials</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Lunch Express Combos</a></li>
+                        <li><a href="#">Late Night BOGO Deals</a></li>
+                        <li><a href="#">Family Feast Trays</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Locations</a>
+                </li>
+
+                <!-- About Us Dropdown -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Master Chefs</a></li>
+                        <li><a href="#">Fresh Ingredients</a></li>
+                    </ul>
+                </li>
+
+                <!-- Button Link with Opacity Hover -->
+                <li class="nav-item" style="display: flex; align-items: center;">
+                    <a href="#" class="btn-order">Order Now</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO / HOMEPAGE DESCRIPTION SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Handmade Happiness in Every Fold</h1>
+            <p>At Dumpling Mania, our core mission is simple: authentic street-style dumplings made fresh from scratch every single day. We combine traditional family recipes with local ingredients to bring you warm, flavorful, handmade dumplings in minutes.</p>
+            <a href="#" class="cta-btn">Explore Full Menu</a>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-container">
+        
+        <!-- LEFT COLUMN: PHOTO GALLERY -->
+        <div class="left-column">
+            <div class="card">
+                <h2 class="section-title">Crafted Fresh Daily</h2>
+                <div class="gallery">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=500&q=80" alt="Steamed Dumplings">
+                        <div class="img-caption">Steamed Pork & Chive</div>
+                    </div>
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=500&q=80" alt="Pan-Fried Gyoza">
+                        <div class="img-caption">Crispy Bottom Gyoza</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: STYLED TABLE -->
+        <div class="right-column">
+            <div class="card">
+                <h2 class="section-title">Daily House Specials</h2>
+                <table class="specials-table">
+                    <thead>
+                        <tr>
+                            <th>Special Menu Item</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mania Mix Platter (12 pcs)</td>
+                            <td class="price">$14.99</td>
+                        </tr>
+                        <tr>
+                            <td>Soup Dumpling Trio</td>
+                            <td class="price">$12.50</td>
+                        </tr>
+                        <tr>
+                            <td>Spicy Chili Oil Wontons</td>
+                            <td class="price">$10.99</td>
+                        </tr>
+                        <tr>
+                            <td>Matcha Boba + Dumpling Combo</td>
+                            <td class="price">$11.25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Dumpling Mania. All Rights Reserved.</p>
+        <p>Created by Lizzy Wood</p>
+    </footer>
+
+</body>
+</html>
