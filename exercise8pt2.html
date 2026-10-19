@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Page with Sprite Navigation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        /* ===== 2-LEVEL HORIZONTAL NAV WITH SPRITES ===== */
+        nav {
+            background: #162447;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        /* Top level menu */
+        .nav-main {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-main > li {
+            position: relative;
+        }
+
+        .nav-main > li > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 22px;
+            color: #e0e6ed;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.25s, color 0.25s;
+            white-space: nowrap;
+        }
+
+        .nav-main > li > a:hover,
+        .nav-main > li:hover > a {
+            background: #1f4068;
+            color: #fff;
+        }
+
+        /* Sprite icons */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url('nav-sprites.png');
+            background-repeat: no-repeat;
+            background-size: 96px 24px; /* scaled down from 128x32 */
+            vertical-align: middle;
+        }
+
+        .icon-home    { background-position: 0 0; }
+        .icon-about   { background-position: -24px 0; }
+        .icon-services{ background-position: -48px 0; }
+        .icon-contact { background-position: -72px 0; }
+
+        /* Dropdown (2nd level) */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background: #1f4068;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            border-radius: 0 0 6px 6px;
+            z-index: 100;
+        }
+
+        .nav-main > li:hover > .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown li a {
+            display: block;
+            padding: 12px 18px;
+            color: #d0d8e4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: background 0.2s, padding-left 0.2s;
+        }
+
+        .dropdown li:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown li a:hover {
+            background: #2a5298;
+            color: #fff;
+            padding-left: 24px;
+        }
+
+        /* Main content */
+        main {
+            padding: 40px 0;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* Image gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .caption {
+            padding: 16px 20px;
+        }
+
+        .gallery-item h3 {
+            font-size: 1.15rem;
+            color: #1e3c72;
+            margin-bottom: 6px;
+        }
+
+        .gallery-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .gallery-item a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .gallery-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #162447;
+            color: #a0aec0;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #7eb8f7;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sprite Navigation Demo</h1>
+            <nav>
+                <ul class="nav-main">
+                    <li>
+                        <a href="#home"><span class="icon icon-home"></span> Home</a>
+                    </li>
+                    <li>
+                        <a href="#about"><span class="icon icon-about"></span> About</a>
+                        <ul class="dropdown">
+                            <li><a href="#team">Our Team</a></li>
+                            <li><a href="#history">History</a></li>
+                            <li><a href="#mission">Mission</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#services"><span class="icon icon-services"></span> Services</a>
+                        <ul class="dropdown">
+                            <li><a href="#web">Web Design</a></li>
+                            <li><a href="#dev">Development</a></li>
+                            <li><a href="#seo">SEO</a></li>
+                            <li><a href="#support">Support</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#contact"><span class="icon icon-contact"></span> Contact</a>
+                        <ul class="dropdown">
+                            <li><a href="#email">Email Us</a></li>
+                            <li><a href="#phone">Call Us</a></li>
+                            <li><a href="#map">Location</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro" id="home">
+            <h2>Welcome to the Demo</h2>
+            <p>
+                This page features a two-level horizontal CSS navigation bar that uses a sprite sheet
+                for the menu icons, plus two sample images with links.
+            </p>
+        </section>
+
+        <section class="gallery">
+            <article class="gallery-item" id="about">
+                <img src="image1.png" alt="Sunny landscape with mountains">
+                <div class="caption">
+                    <h3>Landscape Image</h3>
+                    <p>A simple generated landscape showing sky, sun, grass and mountains.</p>
+                    <a href="#home">Back to top →</a>
+                </div>
+            </article>
+
+            <article class="gallery-item" id="services">
+                <img src="image2.png" alt="Abstract geometric design">
+                <div class="caption">
+                    <h3>Abstract Art</h3>
+                    <p>Geometric shapes and concentric ellipses on a deep blue background.</p>
+                    <a href="#contact">Contact us →</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>
+            Created for demonstration &bull;
+            <a href="#home">Home</a> &bull;
+            <a href="#about">About</a> &bull;
+            <a href="#services">Services</a>
+        </p>
+    </footer>
+</body>
+</html>
