@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue
+  font-family: Arial;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  background-color: pink;
+  padding: 10px;
+}
+
+.topnav {
+  background-color: gray;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: pink;
+  color: black;
+}
+
+p {
+  color: black;
+  font-size: 16px;
+  text-align: center;
+}
+
+.button-link {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  opacity: 0.6;
+  border-radius: 4px;
+}
+
+.button-link:hover {
+  opacity: 1;
+}
+
+@media screen and (min-width: 480px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1>JavaScript Assignment</h1>
+
+<div class="topnav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact Us</a>
+</div>
+
+<p>JavaScript statements are separated by semicolons.</p>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+
+<div style="text-align: center; margin-top: 20px;">
+  <a href="https://www.google.com" class="button-link" target="_blank">Go to Google</a>
+</div>
+
+<footer>
+  <p>Thanks for looking at my page! 🐶</p>
+</footer>
+
+<script>
+var a = 10;
+var b = 5;
+var c = a - b;
+var d = 15;
+var e = c + d;
+
+document.getElementById("demo1").innerHTML = "a is " + a;
+document.getElementById("demo2").innerHTML = "b is " + b;
+document.getElementById("demo3").innerHTML = "c is " + c;
+document.getElementById("demo4").innerHTML = "d is " + d;
+document.getElementById("demo5").innerHTML = "e is " + e;
+</script>
+
+</body>
+</html>
