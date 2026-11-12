@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript IF/ELSE Statements</title>
+</head>
+<body>
+
+<style>
+    body {
+        background-color: rgb(255, 212, 246);
+        font-family: Times New Roman;
+    }
+
+    h1 {
+        color: black;
+        text-align: center;
+    }
+
+    h3 {
+        color: black;
+        text-align: center;
+        background-color: rgb(186, 171, 165);
+        padding: 10px;
+    }
+
+    details {
+        margin-bottom: 15px;
+    }
+
+    summary {
+        background-color: rgb(186, 171, 165);
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    details p {
+        padding: 5px;
+        font-size: 17px;
+    }
+
+    pre {
+        background-color: rgb(255, 240, 250);
+        padding: 15px;
+        font-size: 15px;
+        overflow-x: auto;
+        text-align: center
+    }
+    p{ 
+        color: black;
+        font-size: 16px;
+        text-align: center;
+    }
+    h5 {
+        color: black;
+        font-size: 16px;
+        text-align: center;
+    }
+    hr {
+        border: 1px solid black;
+        margin: 20px 0;
+    }
+</style>
+
+<h1>JavaScript IF/ELSE Statements</h1>
+
+<details>
+    <summary>What are IF/ELSE Statements?</summary>
+    <p>
+        IF/ELSE statements allow JavaScript to make decisions.
+        An IF statement runs when something is true, and an
+        ELSE statement runs when it is false.
+    </p>
+</details>
+
+<details>
+    <summary>How to Write an IF Statement?</summary>
+    <p>
+        An IF statement checks if something is true. If it is,
+        the code will run.
+    </p>
+
+    <pre>
+let temperature = 32;
+
+if (temperature > 30) {
+  console.log("It's hot outside!");
+}
+    </pre>
+
+    <h5>
+        Since the temperature is 32, the condition is true and the
+        message shows up.
+    </h5>
+</details>
+
+<details>
+    <summary>How to Write an ELSE Statement?</summary>
+    <p>
+        An ELSE statement runs when the IF condition is not true.
+    </p>
+
+    <pre>
+let age = 15;
+
+if (age >= 18) {
+  console.log("You can vote.");
+} else {
+  console.log("You cannot vote yet.");
+}
+    </pre>
+
+    <h5>
+        Since the age is 15, the ELSE message will show up instead.
+    </h5>
+</details>
+
+<details>
+    <summary>How to Write an ELSE IF Statement?</summary>
+    <p>
+        An ELSE IF statement lets you check more than one condition.
+    </p>
+
+    <pre>
+let score = 85;
+
+if (score >= 90) {
+  console.log("Grade: A");
+} else if (score >= 80) {
+  console.log("Grade: B");
+} else if (score >= 70) {
+  console.log("Grade: C");
+} else if (score >= 60) {
+  console.log("Grade: D");
+} else {
+  console.log("Grade: F");
+}
+    </pre>
+
+    <h5>
+        Since the score is 85, the message "Grade: B"
+        will show up.
+    </h5>
+</details>
+<hr>
+<p>I hope this helps you understand IF/ELSE statements in JavaScript!</p>
+</body>
+</html>
